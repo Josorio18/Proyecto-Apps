@@ -15,3 +15,4 @@
 - feat: Implement favorites tracking functionality
 - ui: Design modern Search screen with bottom sheet filters
 - feat: Add advanced filtering by category, size and price
+- fix: Resolve Room JVM signature conflicts with KSP
