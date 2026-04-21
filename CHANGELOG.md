@@ -10,3 +10,4 @@
 - state: Create MainViewModel for centralized state
 - feat: Build Home screen with categories and catalog
 - ui: Implement ShoeCard reusable component
+- feat: Add ProductDetail screen with image and sizes
