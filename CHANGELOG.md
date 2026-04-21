@@ -7,3 +7,4 @@
 - ui: Design UrbanSteps top bar and bottom navigation
 - data: Setup Room database entities and Daos
 - data: Implement AppRepository for data handling
+- state: Create MainViewModel for centralized state
