@@ -4,3 +4,4 @@
 - ui: Setup Material 3 theme and typography
 - feat: Create base Main Activity
 - feat: Implement Jetpack Navigation component
+- ui: Design UrbanSteps top bar and bottom navigation
