@@ -13,3 +13,4 @@
 - feat: Add ProductDetail screen with image and sizes
 - feat: Implement shopping cart UI and logic
 - feat: Implement favorites tracking functionality
+- ui: Design modern Search screen with bottom sheet filters
