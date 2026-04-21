@@ -9,3 +9,4 @@
 - data: Implement AppRepository for data handling
 - state: Create MainViewModel for centralized state
 - feat: Build Home screen with categories and catalog
+- ui: Implement ShoeCard reusable component
