@@ -6,3 +6,4 @@
 - feat: Implement Jetpack Navigation component
 - ui: Design UrbanSteps top bar and bottom navigation
 - data: Setup Room database entities and Daos
+- data: Implement AppRepository for data handling
