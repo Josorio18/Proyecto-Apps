@@ -11,3 +11,4 @@
 - feat: Build Home screen with categories and catalog
 - ui: Implement ShoeCard reusable component
 - feat: Add ProductDetail screen with image and sizes
+- feat: Implement shopping cart UI and logic
