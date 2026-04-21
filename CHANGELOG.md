@@ -8,3 +8,4 @@
 - data: Setup Room database entities and Daos
 - data: Implement AppRepository for data handling
 - state: Create MainViewModel for centralized state
+- feat: Build Home screen with categories and catalog
