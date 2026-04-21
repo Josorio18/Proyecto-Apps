@@ -12,3 +12,4 @@
 - ui: Implement ShoeCard reusable component
 - feat: Add ProductDetail screen with image and sizes
 - feat: Implement shopping cart UI and logic
+- feat: Implement favorites tracking functionality
