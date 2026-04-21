@@ -19,3 +19,4 @@
 - fix: Add INTERNET permission to AndroidManifest
 - data: Expand initial product catalog with more items
 - data: Integrate local image resources for offline support
+- fix: Standardize image formats to resolve AAPT build errors
