@@ -18,3 +18,4 @@
 - fix: Resolve Room JVM signature conflicts with KSP
 - fix: Add INTERNET permission to AndroidManifest
 - data: Expand initial product catalog with more items
+- data: Integrate local image resources for offline support
