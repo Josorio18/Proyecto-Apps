@@ -17,3 +17,4 @@
 - feat: Add advanced filtering by category, size and price
 - fix: Resolve Room JVM signature conflicts with KSP
 - fix: Add INTERNET permission to AndroidManifest
+- data: Expand initial product catalog with more items
