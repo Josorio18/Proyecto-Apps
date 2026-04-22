@@ -89,7 +89,30 @@ class MainActivity : ComponentActivity() {
                             onBackClick = { navController.popBackStack() },
                             onQuantityChange = { item, delta -> viewModel.updateCartQuantity(item, delta) },
                             onRemoveItem = { item -> viewModel.removeFromCart(item) },
-                            onCheckout = { viewModel.clearCart() }
+                            onCheckout = { navController.navigate(Screen.Checkout.route) }
+                        )
+                    }
+
+                    composable(Screen.Checkout.route) {
+                        CheckoutScreen(
+                            cartItems = cartItems,
+                            onBackClick = { navController.popBackStack() },
+                            onPaymentSuccess = {
+                                viewModel.clearCart()
+                                navController.navigate(Screen.OrderSuccess.route) {
+                                    popUpTo(Screen.Cart.route) { inclusive = true }
+                                }
+                            }
+                        )
+                    }
+
+                    composable(Screen.OrderSuccess.route) {
+                        OrderSuccessScreen(
+                            onContinueShopping = {
+                                navController.navigate(Screen.Home.route) {
+                                    popUpTo(Screen.Home.route) { inclusive = true }
+                                }
+                            }
                         )
                     }
 
