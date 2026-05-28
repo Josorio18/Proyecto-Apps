@@ -39,6 +39,7 @@ fun HomeScreen(
     onFavoriteToggle: (String, Boolean) -> Unit,
     onCartClick: () -> Unit,
     onSearchClick: () -> Unit,
+    onBannerClick: () -> Unit,
     onNavigate: (String) -> Unit
 ) {
     var selectedCategory by remember { mutableStateOf("Todo") }
@@ -71,7 +72,8 @@ fun HomeScreen(
                     .fillMaxWidth()
                     .height(180.dp)
                     .clip(RoundedCornerShape(12.dp))
-                    .background(Color(0xFFE5E5E5)),
+                    .background(Color(0xFFE5E5E5))
+                    .clickable { onBannerClick() },
                 contentAlignment = Alignment.Center
             ) {
                 AsyncImage(

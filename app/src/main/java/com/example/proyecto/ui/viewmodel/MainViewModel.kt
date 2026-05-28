@@ -7,6 +7,7 @@ import com.example.proyecto.data.AppDatabase
 import com.example.proyecto.data.AppRepository
 import com.example.proyecto.data.entity.CartItemEntity
 import com.example.proyecto.model.Product
+import com.example.proyecto.notification.NotificationManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -16,10 +17,12 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: AppRepository
+    private val notificationManager: NotificationManager
 
     init {
         val database = AppDatabase.getDatabase(application)
         repository = AppRepository(database.productDao(), database.cartDao())
+        notificationManager = NotificationManager(application)
         
         viewModelScope.launch {
             repository.seedDatabaseIfEmpty()
@@ -37,7 +40,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun toggleFavorite(productId: String, currentStatus: Boolean) {
         viewModelScope.launch {
-            repository.updateFavoriteStatus(productId, !currentStatus)
+            val newStatus = !currentStatus
+            repository.updateFavoriteStatus(productId, newStatus)
+            
+            val product = products.value.find { it.id == productId }
+            product?.let {
+                notificationManager.showFavoriteNotification(it.name, newStatus)
+            }
         }
     }
 
@@ -59,6 +68,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                         selectedSize = size
                     )
                 )
+                notificationManager.showAddToCartNotification(product.name)
             }
         }
     }
@@ -84,5 +94,25 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             repository.clearCart()
         }
+    }
+
+    fun showPurchaseSuccessNotification(totalAmount: Double, itemCount: Int) {
+        notificationManager.showPurchaseSuccessNotification(totalAmount, itemCount)
+    }
+
+    fun showWelcomeNotification() {
+        notificationManager.showWelcomeNotification()
+    }
+
+    fun showSpecialOfferNotification(discount: Int, productName: String) {
+        notificationManager.showSpecialOfferNotification(discount, productName)
+    }
+
+    fun showNewProductNotification(productName: String, category: String) {
+        notificationManager.showNewProductNotification(productName, category)
+    }
+
+    fun showLowStockNotification(productName: String, remainingStock: Int) {
+        notificationManager.showLowStockNotification(productName, remainingStock)
     }
 }
